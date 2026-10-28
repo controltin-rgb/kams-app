@@ -1,0 +1,954 @@
+{
+ "version": 1,
+ "units": "meters",
+ "coords": "glTF (Y-up, +Z = front)",
+ "shell": "scenes/office_shell.glb",
+ "items": [
+  {
+   "model": "desk_staff",
+   "position": [
+    -5.3,
+    0.0,
+    -3.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -5.45,
+    0.0,
+    -2.85
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -5.45,
+    0.75,
+    -3.53
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -5.45,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -5.12,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -5.8,
+    0.0,
+    -3.45
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_staff",
+   "position": [
+    -3.5,
+    0.0,
+    -3.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -3.65,
+    0.0,
+    -2.85
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -3.65,
+    0.75,
+    -3.53
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -3.65,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -3.32,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -4.0,
+    0.0,
+    -3.45
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_staff",
+   "position": [
+    -1.7,
+    0.0,
+    -3.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -1.85,
+    0.0,
+    -2.85
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -1.85,
+    0.75,
+    -3.53
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -1.85,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -1.52,
+    0.75,
+    -3.26
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -2.2,
+    0.0,
+    -3.45
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_staff",
+   "position": [
+    -5.3,
+    0.0,
+    -1.3
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -5.45,
+    0.0,
+    -0.75
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -5.45,
+    0.75,
+    -1.43
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -5.45,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -5.12,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -5.8,
+    0.0,
+    -1.35
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_staff",
+   "position": [
+    -3.5,
+    0.0,
+    -1.3
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -3.65,
+    0.0,
+    -0.75
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -3.65,
+    0.75,
+    -1.43
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -3.65,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -3.32,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -4.0,
+    0.0,
+    -1.35
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_staff",
+   "position": [
+    -1.7,
+    0.0,
+    -1.3
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -1.85,
+    0.0,
+    -0.75
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    -1.85,
+    0.75,
+    -1.43
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    -1.85,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    -1.52,
+    0.75,
+    -1.16
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    -2.2,
+    0.0,
+    -1.35
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_helpdesk",
+   "position": [
+    0.0,
+    0.0,
+    1.8
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    0.2,
+    0.0,
+    2.35
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    0.35,
+    0.75,
+    2.0
+   ],
+   "rotationY": -0.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    0.35,
+    0.75,
+    2.22
+   ],
+   "rotationY": -0.0
+  },
+  {
+   "model": "ip_phone",
+   "position": [
+    -0.35,
+    0.75,
+    2.0
+   ],
+   "rotationY": 20.0
+  },
+  {
+   "model": "ticket_paper",
+   "position": [
+    -0.35,
+    1.02,
+    1.52
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "plant_pot",
+   "position": [
+    1.4,
+    0.0,
+    1.5
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "sofa_waiting",
+   "position": [
+    -2.8,
+    0.0,
+    4.0
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "plant_pot",
+   "position": [
+    -4.2,
+    0.0,
+    4.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "desk_manager",
+   "position": [
+    -5.2,
+    0.0,
+    2.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "chair_office",
+   "position": [
+    -5.2,
+    0.0,
+    3.0
+   ],
+   "rotationY": -180.0
+  },
+  {
+   "model": "laptop",
+   "position": [
+    -5.3,
+    0.755,
+    2.4
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "cabinet_file",
+   "position": [
+    -6.7,
+    0.0,
+    1.3
+   ],
+   "rotationY": 90.0
+  },
+  {
+   "model": "water_cooler",
+   "position": [
+    -6.7,
+    0.0,
+    -0.6
+   ],
+   "rotationY": 90.0
+  },
+  {
+   "model": "plant_pot",
+   "position": [
+    -6.6,
+    0.0,
+    -4.5
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "whiteboard",
+   "position": [
+    0.2,
+    1.55,
+    -5.0
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "printer_station",
+   "position": [
+    0.3,
+    0.0,
+    -4.55
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "printer_mfp",
+   "position": [
+    0.15,
+    0.62,
+    -4.55
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "rack_server",
+   "position": [
+    1.75,
+    0.0,
+    -4.45
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "rack_server",
+   "position": [
+    2.4,
+    0.0,
+    -4.45
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "ac_wall",
+   "position": [
+    0.0,
+    2.35,
+    -5.0
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "ac_wall",
+   "position": [
+    7.0,
+    2.35,
+    -2.0
+   ],
+   "rotationY": -90.0
+  },
+  {
+   "model": "trash_bin",
+   "position": [
+    -0.6,
+    0.0,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "workbench_repair",
+   "position": [
+    6.45,
+    0.0,
+    -3.4
+   ],
+   "rotationY": -90.0
+  },
+  {
+   "model": "workbench_tools_wall",
+   "position": [
+    7.0,
+    1.55,
+    -3.4
+   ],
+   "rotationY": -90.0
+  },
+  {
+   "model": "pc_tower",
+   "position": [
+    6.4,
+    0.91,
+    -3.6
+   ],
+   "rotationY": -90.0
+  },
+  {
+   "model": "toolbox",
+   "position": [
+    6.4,
+    0.91,
+    -3.2
+   ],
+   "rotationY": -70.0
+  },
+  {
+   "model": "shelf_storage",
+   "position": [
+    4.3,
+    0.0,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "parts_box",
+   "position": [
+    4.0,
+    0.0925,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "parts_box",
+   "position": [
+    4.6,
+    0.0925,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    4.0,
+    0.6625,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "generic_equipment",
+   "position": [
+    4.6,
+    0.6625,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    4.0,
+    1.2625,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "parts_box",
+   "position": [
+    4.6,
+    1.2625,
+    -4.6
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "trolley_cart",
+   "position": [
+    4.6,
+    0.0,
+    -1.2
+   ],
+   "rotationY": 15.0
+  },
+  {
+   "model": "ladder",
+   "position": [
+    3.35,
+    0.0,
+    -4.7
+   ],
+   "rotationY": 0.0
+  },
+  {
+   "model": "shelf_storage",
+   "position": [
+    3.8,
+    0.0,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_large",
+   "position": [
+    4.1,
+    0.0925,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    3.5,
+    0.0925,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    4.1,
+    0.6625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    3.5,
+    0.6625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    4.1,
+    1.2625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    3.5,
+    1.2625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "shelf_storage",
+   "position": [
+    5.3,
+    0.0,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_large",
+   "position": [
+    5.6,
+    0.0925,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    5.0,
+    0.0925,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "monitor",
+   "position": [
+    5.6,
+    0.6625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "keyboard",
+   "position": [
+    5.0,
+    0.6625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "box_small",
+   "position": [
+    5.6,
+    1.2625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "mouse",
+   "position": [
+    5.0,
+    1.2625,
+    4.5
+   ],
+   "rotationY": 180.0
+  },
+  {
+   "model": "package_courier",
+   "position": [
+    6.2,
+    0.0,
+    2.2
+   ],
+   "rotationY": 30.0
+  },
+  {
+   "model": "box_large",
+   "position": [
+    6.3,
+    0.0,
+    4.4
+   ],
+   "rotationY": 10.0
+  }
+ ],
+ "zones": {
+  "zone_open_office": {
+   "position": [
+    -3.5,
+    0,
+    -2.4
+   ],
+   "rotationY": 0
+  },
+  "zone_helpdesk": {
+   "position": [
+    0.0,
+    0,
+    1.8
+   ],
+   "rotationY": 180
+  },
+  "zone_waiting": {
+   "position": [
+    -2.8,
+    0,
+    3.6
+   ],
+   "rotationY": 180
+  },
+  "zone_manager": {
+   "position": [
+    -5.2,
+    0,
+    2.4
+   ],
+   "rotationY": 0
+  },
+  "zone_repair_lab": {
+   "position": [
+    5.0,
+    0,
+    -2.5
+   ],
+   "rotationY": 0
+  },
+  "zone_server": {
+   "position": [
+    2.1,
+    0,
+    -3.8
+   ],
+   "rotationY": 0
+  },
+  "zone_storage": {
+   "position": [
+    4.6,
+    0,
+    3.8
+   ],
+   "rotationY": 180
+  },
+  "door_vendor": {
+   "position": [
+    6.3,
+    0,
+    3.5
+   ],
+   "rotationY": 90
+  },
+  "entrance": {
+   "position": [
+    6.4,
+    0,
+    0.9
+   ],
+   "rotationY": 90
+  },
+  "lab_gate": {
+   "position": [
+    3.1,
+    0,
+    -2.4
+   ],
+   "rotationY": 90
+  }
+ },
+ "waypoints": [
+  [
+   -3.5,
+   0,
+   -0.4
+  ],
+  [
+   -0.9,
+   0,
+   -0.4
+  ],
+  [
+   1.6,
+   0,
+   -0.4
+  ],
+  [
+   2.5,
+   0,
+   -2.4
+  ],
+  [
+   4.2,
+   0,
+   -2.4
+  ],
+  [
+   5.6,
+   0,
+   -2.6
+  ],
+  [
+   1.6,
+   0,
+   0.6
+  ],
+  [
+   1.6,
+   0,
+   3.2
+  ],
+  [
+   4.6,
+   0,
+   1.5
+  ],
+  [
+   6.0,
+   0,
+   0.9
+  ],
+  [
+   6.0,
+   0,
+   3.5
+  ],
+  [
+   -2.8,
+   0,
+   2.9
+  ],
+  [
+   -5.2,
+   0,
+   1.2
+  ],
+  [
+   -6.0,
+   0,
+   -0.4
+  ]
+ ]
+}

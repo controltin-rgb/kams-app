@@ -1,0 +1,787 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- BetterAuth (plugins: username, admin) ----------
+model User {
+  id               String                 @id
+  name             String
+  email            String                 @unique
+  emailVerified    Boolean                @default(false)
+  image            String?
+  username         String?                @unique
+  displayUsername  String?
+  role             String                 @default("user")
+  banned           Boolean                @default(false)
+  banReason        String?
+  banExpires       DateTime?
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  phone            String?
+  departmentId     String?
+  deletedAt        DateTime?
+  lineUserId       String? // LINE Messaging API recipient (Uxxxxxxxx...)
+  department       Department?            @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  sessions         Session[]
+  auditLogs        SystemAuditLog[]
+  accounts         Account[]
+  ownedAssets      Asset[]                @relation("AssetOwner")
+  reportedTickets  Ticket[]               @relation("Reporter")
+  assignedTickets  Ticket[]               @relation("Tech")
+  pmSchedules      PmSchedule[]           @relation("PmTech")
+  auditAssignments AuditCampaignAuditor[]
+  notifications    Notification[]
+  sceneAvatar      SceneAvatar?
+}
+
+model Session {
+  id             String   @id
+  expiresAt      DateTime
+  token          String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  ipAddress      String?
+  userAgent      String?
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  impersonatedBy String?
+
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+// ---------- Audit (append-only) ----------
+model SystemAuditLog {
+  id             String   @id @default(cuid())
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  impersonatedBy String?
+  action         String
+  module         String
+  entityId       String?
+  details        Json?
+  ip             String?
+  userAgent      String?
+  createdAt      DateTime @default(now())
+
+  @@index([module, createdAt])
+  @@index([userId, createdAt])
+}
+
+// ---------- Enums ----------
+enum AssetStatus {
+  SPARE
+  ACTIVE
+  IN_USE
+  IN_MAINTENANCE
+  CLAIMING
+  PENDING_DISPOSAL
+  DISPOSED
+}
+
+enum AssetCondition {
+  GOOD
+  FAIR
+  DAMAGED
+}
+
+enum PropertyType {
+  TEXT
+  NUMBER
+  DATE
+  SELECT
+  BOOLEAN
+}
+
+enum LocationType {
+  BUILDING
+  FLOOR
+  ROOM
+  SPOT
+}
+
+// ---------- Master data ----------
+model Department {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  code      String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]
+  assets    Asset[]
+}
+
+model Location {
+  id        String       @id @default(cuid())
+  name      String
+  type      LocationType
+  parentId  String?
+  parent    Location?    @relation("LocTree", fields: [parentId], references: [id])
+  children  Location[]   @relation("LocTree")
+  assets    Asset[]
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  deletedAt DateTime?
+  sceneSlot String?      @unique // 3D Office layout item id this location is shown at
+
+  @@index([parentId])
+}
+
+model Vendor {
+  id        String          @id @default(cuid())
+  name      String
+  contact   String?
+  phone     String?
+  email     String?
+  address   String?
+  note      String?
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  deletedAt DateTime?
+  claims    ExternalClaim[]
+}
+
+model AssetCategory {
+  id           String               @id @default(cuid())
+  name         String               @unique
+  codePrefix   String               @unique // e.g. PC → PC-2026-0001
+  description  String?
+  sceneModel   String? // 3D Office model key (manifest); null = generic_equipment
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  assets       Asset[]
+  propertyDefs PropertyDefinition[]
+}
+
+model PropertyDefinition {
+  id         String        @id @default(cuid())
+  categoryId String
+  category   AssetCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  key        String
+  label      String
+  type       PropertyType  @default(TEXT)
+  required   Boolean       @default(false)
+  options    String[]      @default([]) // choices for SELECT
+  sortOrder  Int           @default(0)
+
+  @@unique([categoryId, key])
+}
+
+// ---------- Asset ----------
+model Asset {
+  id             String              @id @default(cuid())
+  assetCode      String              @unique
+  barcode        String?             @unique // manufacturer barcode (optional); labels use assetCode
+  name           String
+  categoryId     String
+  category       AssetCategory       @relation(fields: [categoryId], references: [id])
+  brand          String?
+  model          String?
+  serialNumber   String?
+  purchaseDate   DateTime?           @db.Date
+  warrantyExpiry DateTime?           @db.Date
+  cost           Decimal?            @db.Decimal(12, 2)
+  status         AssetStatus         @default(SPARE)
+  condition      AssetCondition      @default(GOOD)
+  ownerId        String?
+  owner          User?               @relation("AssetOwner", fields: [ownerId], references: [id])
+  departmentId   String?
+  department     Department?         @relation(fields: [departmentId], references: [id])
+  locationId     String?
+  location       Location?           @relation(fields: [locationId], references: [id])
+  note           String?
+  properties     AssetProperty[]
+  history        AssetHistory[]
+  tickets        Ticket[]
+  attachments    Attachment[]
+  asParent       AssetRelationship[] @relation("Parent")
+  asChild        AssetRelationship[] @relation("Child")
+  transferItems  AssetTransferItem[]
+  pmSchedules    PmSchedule[]
+  claims         ExternalClaim[]
+  auditRecords   AuditRecord[]
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  deletedAt      DateTime?
+
+  @@index([status])
+  @@index([categoryId])
+  @@index([ownerId])
+  @@index([locationId])
+  @@index([serialNumber])
+}
+
+model AssetProperty {
+  id      String @id @default(cuid())
+  assetId String
+  asset   Asset  @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  key     String
+  value   String
+
+  @@unique([assetId, key])
+}
+
+// Ownership / location / status changes (immutable)
+model AssetHistory {
+  id        String   @id @default(cuid())
+  assetId   String
+  asset     Asset    @relation(fields: [assetId], references: [id])
+  event     String // CREATED | UPDATED | ASSIGNED | MOVED | STATUS_CHANGED | DELETED ...
+  fromValue Json?
+  toValue   Json?
+  refType   String? // TICKET | SWAP | CLAIM | AUDIT | IMPORT
+  refId     String?
+  actorId   String?
+  createdAt DateTime @default(now())
+
+  @@index([assetId, createdAt])
+}
+
+// Running numbers per prefix and year, e.g. (PC, 2026) → PC-2026-0001
+model DocumentSequence {
+  key  String
+  year Int
+  last Int    @default(0)
+
+  @@id([key, year])
+}
+
+// ---------- Ticket ----------
+enum TicketCategory {
+  IT
+  FACILITY
+  GENERAL
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  ON_HOLD
+  RESOLVED
+  CLOSED
+  CANCELLED
+}
+
+enum TicketSource {
+  WEB
+  QR
+  QR_PUBLIC
+}
+
+enum TicketActivityKind {
+  CREATED
+  COMMENT
+  STATUS_CHANGED
+  ASSIGNED
+  PRIORITY_CHANGED
+  UPDATED
+  PART_ADDED
+  PART_REMOVED
+  ATTACHMENT_ADDED
+  ATTACHMENT_REMOVED
+}
+
+model Ticket {
+  id                  String           @id @default(cuid())
+  ticketNumber        String           @unique // TCK-2026-0001
+  category            TicketCategory   @default(IT)
+  source              TicketSource     @default(WEB)
+  assetId             String?
+  asset               Asset?           @relation(fields: [assetId], references: [id])
+  assetUnusable       Boolean          @default(false) // asset set to IN_MAINTENANCE while open
+  previousAssetStatus AssetStatus? // restored when the ticket is closed/cancelled
+  reporterId          String?
+  reporter            User?            @relation("Reporter", fields: [reporterId], references: [id])
+  reporterName        String? // anonymous (public QR) reports
+  reporterContact     String?
+  assignedTechId      String?
+  assignedTech        User?            @relation("Tech", fields: [assignedTechId], references: [id])
+  title               String
+  description         String?
+  locationText        String?
+  priority            TicketPriority   @default(MEDIUM)
+  status              TicketStatus     @default(OPEN)
+  cause               String?
+  resolution          String?
+  onHoldReason        String?
+  laborCost           Decimal          @default(0) @db.Decimal(10, 2)
+  repairCost          Decimal          @default(0) @db.Decimal(10, 2) // parts + labor
+  dueAt               DateTime? // SLA
+  firstResponseAt     DateTime?
+  resolvedAt          DateTime?
+  closedAt            DateTime?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  activities          TicketActivity[]
+  parts               TicketPart[]
+  attachments         Attachment[]
+  transfers           AssetTransfer[]
+  claims              ExternalClaim[]
+
+  @@index([status, priority])
+  @@index([assignedTechId])
+  @@index([reporterId])
+  @@index([assetId])
+}
+
+// Timeline: comments and system events (immutable)
+model TicketActivity {
+  id        String             @id @default(cuid())
+  ticketId  String
+  ticket    Ticket             @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  kind      TicketActivityKind
+  body      String?
+  internal  Boolean            @default(false) // staff-only note
+  fromValue Json?
+  toValue   Json?
+  actorId   String?
+  createdAt DateTime           @default(now())
+
+  @@index([ticketId, createdAt])
+}
+
+model TicketPart {
+  id              String   @id @default(cuid())
+  ticketId        String
+  ticket          Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  name            String
+  qty             Int      @default(1)
+  unitCost        Decimal  @db.Decimal(10, 2)
+  replacedAssetId String?
+  createdAt       DateTime @default(now())
+}
+
+// ---------- Common ----------
+model Attachment {
+  id              String         @id @default(cuid())
+  storageKey      String         @unique // path under the storage root, random name
+  filename        String // original name (display only)
+  mime            String
+  size            Int
+  uploadedById    String?
+  ticketId        String?
+  ticket          Ticket?        @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  assetId         String?
+  asset           Asset?         @relation(fields: [assetId], references: [id])
+  transferId      String?
+  transfer        AssetTransfer? @relation(fields: [transferId], references: [id], onDelete: Cascade)
+  labelTemplateId String?
+  labelTemplate   LabelTemplate? @relation(fields: [labelTemplateId], references: [id], onDelete: Cascade)
+  createdAt       DateTime       @default(now())
+
+  @@index([ticketId])
+  @@index([assetId])
+  @@index([transferId])
+}
+
+model SystemSetting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- Bundle & Deployment ----------
+enum RelationType {
+  COMPONENT
+  ACCESSORY
+  SOFTWARE
+}
+
+enum RelationStatus {
+  ACTIVE
+  DETACHED
+}
+
+model AssetRelationship {
+  id         String         @id @default(cuid())
+  parentId   String
+  childId    String
+  parent     Asset          @relation("Parent", fields: [parentId], references: [id])
+  child      Asset          @relation("Child", fields: [childId], references: [id])
+  type       RelationType   @default(COMPONENT)
+  status     RelationStatus @default(ACTIVE)
+  attachedAt DateTime       @default(now())
+  detachedAt DateTime?
+  // Migration SQL adds: partial unique index on childId WHERE status = ACTIVE, and CHECK (parentId <> childId)
+
+  @@index([parentId, status])
+  @@index([childId])
+}
+
+enum TransferType {
+  HANDOVER // assign to a person (and place)
+  RETURN // back to stock
+  MOVE // change location/department only
+  SWAP_PARTIAL // replace one component inside a bundle
+  SWAP_FULL // replace a whole set for the holder
+}
+
+enum TransferItemAction {
+  ASSIGN
+  RETURN
+  MOVE
+  ATTACH
+  DETACH
+}
+
+/// Handover / return / move / swap document (header). HND-YYYY-0000 or SWP-YYYY-0000.
+model AssetTransfer {
+  id             String              @id @default(cuid())
+  docNumber      String              @unique
+  type           TransferType
+  reason         String?
+  ticketId       String?
+  ticket         Ticket?             @relation(fields: [ticketId], references: [id])
+  toOwnerId      String?
+  toLocationId   String?
+  toDepartmentId String?
+  performedById  String
+  signedByName   String? // receiver who signed
+  signedAt       DateTime?
+  createdAt      DateTime            @default(now())
+  items          AssetTransferItem[]
+  attachments    Attachment[] // signature image
+
+  @@index([createdAt])
+}
+
+model AssetTransferItem {
+  id               String             @id @default(cuid())
+  transferId       String
+  transfer         AssetTransfer      @relation(fields: [transferId], references: [id], onDelete: Cascade)
+  assetId          String
+  asset            Asset              @relation(fields: [assetId], references: [id])
+  action           TransferItemAction
+  parentAssetId    String?
+  fromOwnerId      String?
+  toOwnerId        String?
+  fromLocationId   String?
+  toLocationId     String?
+  fromDepartmentId String?
+  toDepartmentId   String?
+  fromStatus       AssetStatus?
+  toStatus         AssetStatus?
+
+  @@index([transferId])
+  @@index([assetId])
+}
+
+// ---------- Label ----------
+enum LabelKind {
+  ASSET // per-asset data (code, barcode, QR, fields)
+  STATUS // fixed status stickers (no asset data)
+}
+
+model LabelTemplate {
+  id            String       @id @default(cuid())
+  name          String
+  kind          LabelKind    @default(ASSET)
+  paperPreset   String       @default("A4_4x10") // see modules/labels/design.ts presets
+  pageWidthMm   Decimal      @db.Decimal(8, 2)
+  pageHeightMm  Decimal      @db.Decimal(8, 2)
+  labelWidthMm  Decimal      @db.Decimal(8, 2)
+  labelHeightMm Decimal      @db.Decimal(8, 2)
+  columns       Int          @default(1)
+  rows          Int          @default(1)
+  marginTopMm   Decimal      @default(0) @db.Decimal(8, 2)
+  marginLeftMm  Decimal      @default(0) @db.Decimal(8, 2)
+  gapXMm        Decimal      @default(0) @db.Decimal(8, 2)
+  gapYMm        Decimal      @default(0) @db.Decimal(8, 2)
+  design        Json // { elements: LabelElement[] } in mm relative to the label
+  isDefault     Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  deletedAt     DateTime?
+  images        Attachment[]
+
+  @@index([kind])
+}
+
+// ---------- PM ----------
+enum PmFrequency {
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+enum PmRunStatus {
+  SCHEDULED
+  IN_PROGRESS
+  DONE
+  SKIPPED
+  OVERDUE
+}
+
+model PmSchedule {
+  id                String      @id @default(cuid())
+  title             String
+  description       String?
+  assetId           String?
+  asset             Asset?      @relation(fields: [assetId], references: [id])
+  locationId        String?
+  frequency         PmFrequency
+  startDate         DateTime    @db.Date
+  nextDueDate       DateTime    @db.Date // next run to generate
+  assignedTechId    String?
+  assignedTech      User?       @relation("PmTech", fields: [assignedTechId], references: [id])
+  checklistTemplate Json // [{ id, label, type: CHECK|NUMBER|TEXT, unit?, required }]
+  active            Boolean     @default(true)
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  runs              PmRun[]
+
+  @@index([active, nextDueDate])
+}
+
+model PmRun {
+  id              String      @id @default(cuid())
+  scheduleId      String
+  schedule        PmSchedule  @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  dueDate         DateTime    @db.Date
+  status          PmRunStatus @default(SCHEDULED)
+  checklistResult Json? // [{ itemId, label, type, value, pass }]
+  notes           String?
+  startedAt       DateTime?
+  doneById        String?
+  doneAt          DateTime?
+  createdAt       DateTime    @default(now())
+
+  @@unique([scheduleId, dueDate]) // idempotent generation
+  @@index([status, dueDate])
+}
+
+// ---------- Claim ----------
+enum ClaimStatus {
+  SENT
+  IN_REPAIR
+  RETURNED
+  REPLACED
+  CANCELLED
+}
+
+/// Warranty / vendor repair claim. CLM-YYYY-0000
+model ExternalClaim {
+  id                  String      @id @default(cuid())
+  claimNumber         String      @unique
+  assetId             String
+  asset               Asset       @relation(fields: [assetId], references: [id])
+  vendorId            String
+  vendor              Vendor      @relation(fields: [vendorId], references: [id])
+  ticketId            String?
+  ticket              Ticket?     @relation(fields: [ticketId], references: [id])
+  problem             String
+  sentDate            DateTime    @db.Date
+  expectedReturnDate  DateTime?   @db.Date
+  actualReturnDate    DateTime?   @db.Date
+  status              ClaimStatus @default(SENT)
+  previousAssetStatus AssetStatus // restored when the claim ends
+  cost                Decimal?    @db.Decimal(10, 2)
+  oldSerial           String? // when the vendor replaced the unit
+  newSerial           String?
+  notes               String?
+  createdById         String
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+  @@index([status])
+  @@index([assetId])
+}
+
+// ---------- Stock Take ----------
+enum CampaignStatus {
+  DRAFT // being set up
+  IN_PROGRESS // scanning open
+  COMPLETED // scanning closed, MISSING computed, awaiting reconcile
+  CLOSED // reconciled and locked
+}
+
+enum AuditResult {
+  MATCHED
+  RELOCATED
+  MISSING
+  UNREGISTERED
+}
+
+enum AuditDecision {
+  APPLY // update master data (location / condition / status)
+  IGNORE // keep master data as is
+}
+
+model AuditCampaign {
+  id               String                 @id @default(cuid())
+  title            String
+  year             Int
+  startDate        DateTime               @db.Date
+  endDate          DateTime               @db.Date
+  scopeLocationIds String[] // root locations; descendants are included
+  status           CampaignStatus         @default(DRAFT)
+  note             String?
+  createdById      String
+  completedAt      DateTime?
+  closedAt         DateTime?
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  auditors         AuditCampaignAuditor[]
+  records          AuditRecord[]
+  scans            AuditScan[]
+}
+
+model AuditCampaignAuditor {
+  campaignId String
+  campaign   AuditCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([campaignId, userId])
+}
+
+/// Raw scan log from devices. clientUuid makes offline sync idempotent.
+model AuditScan {
+  id               String         @id @default(cuid())
+  campaignId       String
+  campaign         AuditCampaign  @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  clientUuid       String         @unique
+  scannedCode      String
+  actualLocationId String?
+  condition        AssetCondition @default(GOOD)
+  notes            String?
+  scannedById      String
+  scannedAt        DateTime // device time
+  receivedAt       DateTime       @default(now())
+
+  @@index([campaignId])
+}
+
+/// One result per scanned code (latest scan wins) plus MISSING rows created when scanning closes.
+model AuditRecord {
+  id                 String         @id @default(cuid())
+  campaignId         String
+  campaign           AuditCampaign  @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  assetId            String?
+  asset              Asset?         @relation(fields: [assetId], references: [id])
+  scannedCode        String // asset code, or the unknown code for UNREGISTERED
+  scannedById        String?
+  expectedLocationId String?
+  actualLocationId   String?
+  condition          AssetCondition @default(GOOD)
+  result             AuditResult
+  notes              String?
+  scannedAt          DateTime?
+  reconciled         Boolean        @default(false)
+  decision           AuditDecision?
+  reconciledById     String?
+  reconciledAt       DateTime?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  @@unique([campaignId, scannedCode])
+  @@index([campaignId, result])
+}
+
+// ---------- Notifications ----------
+// In-app notifications (header bell). Email/LINE copies are sent but not stored.
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  event     String
+  title     String
+  body      String?
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, createdAt])
+}
+
+// Reminders already sent (e.g. "PM_DUE:<runId>") so scheduled checks never notify twice
+model NotificationDispatch {
+  key       String   @id
+  createdAt DateTime @default(now())
+}
+
+// ---------- Roles ----------
+// Permission sets editable in the UI. Built-in roles (lib/permissions.ts) apply until a row overrides them;
+// the admin role always has every permission and is never stored here.
+model Role {
+  id          String   @id @default(cuid())
+  key         String   @unique // value stored in User.role
+  name        String
+  description String?
+  permissions Json // { [resource]: action[] }
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ---------- 3D Office (read-only view, docs: IMPLEMENTATION.md) ----------
+// Outbox of AMS events for the 3D scene, written in the same transaction as the original action
+model SceneEvent {
+  id          BigInt   @id @default(autoincrement()) // also the SSE event id
+  type        String
+  actorId     String?
+  subjectType String? // TICKET | ASSET | SWAP | CLAIM | PM | AUDIT
+  subjectId   String?
+  payload     Json // minimal, never sensitive data
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model SceneLayout {
+  id        String   @id @default(cuid())
+  name      String
+  isActive  Boolean  @default(false)
+  version   Int      @default(1)
+  config    Json // office_layout.json with an `id` per item
+  updatedAt DateTime @updatedAt
+}
+
+model SceneAvatar {
+  userId   String  @id
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  model    String // character key, e.g. "char_staff_b"
+  deskSlot String? @unique // layout item id, e.g. "desk_staff-03"
+  colors   Json? // { shirt: "#...", hair: "#..." }
+}

@@ -1,0 +1,1982 @@
+{
+ "version": 1,
+ "generated": "2026-10-27",
+ "units": "meters",
+ "up": "+Y",
+ "front": "+Z",
+ "conventions": {
+  "anchor_forward": "+Z of the anchor node (glTF) = direction the character faces",
+  "origin": "floor centre unless note says otherwise",
+  "runtime_materials": [
+   "mat_screen",
+   "mat_status_light",
+   "mat_accent",
+   "mat_glass",
+   "mat_whiteboard",
+   "mat_skin",
+   "mat_hair",
+   "mat_shirt",
+   "mat_pants"
+  ]
+ },
+ "models": [
+  {
+   "key": "char_auditor",
+   "path": "characters/char_auditor.glb",
+   "category": "characters",
+   "priority": "P1",
+   "tris": 4520,
+   "size_m_xyz": [
+    0.712,
+    0.805,
+    1.554
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 442704,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_base",
+   "path": "characters/char_base.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 3928,
+   "size_m_xyz": [
+    0.712,
+    0.697,
+    1.554
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 409700,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_courier",
+   "path": "characters/char_courier.glb",
+   "category": "characters",
+   "priority": "P1",
+   "tris": 4616,
+   "size_m_xyz": [
+    0.729,
+    0.9,
+    1.586
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 461196,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_helpdesk",
+   "path": "characters/char_helpdesk.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 4362,
+   "size_m_xyz": [
+    0.746,
+    0.697,
+    1.554
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 438416,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_manager",
+   "path": "characters/char_manager.glb",
+   "category": "characters",
+   "priority": "P1",
+   "tris": 4372,
+   "size_m_xyz": [
+    0.712,
+    0.697,
+    1.642
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 432372,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_staff_a",
+   "path": "characters/char_staff_a.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 4110,
+   "size_m_xyz": [
+    0.746,
+    0.697,
+    1.554
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 425660,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_staff_b",
+   "path": "characters/char_staff_b.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 4616,
+   "size_m_xyz": [
+    0.729,
+    0.9,
+    1.586
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 453312,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_staff_c",
+   "path": "characters/char_staff_c.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 4476,
+   "size_m_xyz": [
+    0.712,
+    0.697,
+    1.642
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 433844,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_technician",
+   "path": "characters/char_technician.glb",
+   "category": "characters",
+   "priority": "P0",
+   "tris": 4632,
+   "size_m_xyz": [
+    0.729,
+    0.92,
+    1.586
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 458412,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "char_vendor_tech",
+   "path": "characters/char_vendor_tech.glb",
+   "category": "characters",
+   "priority": "P2",
+   "tris": 4596,
+   "size_m_xyz": [
+    0.712,
+    0.697,
+    1.642
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_hair",
+    "mat_palette",
+    "mat_pants",
+    "mat_shirt",
+    "mat_skin"
+   ],
+   "bytes": 457480,
+   "note": "humanoid rig (Mixamo-style names), 20 clips, sockets socket_hand_l/r",
+   "animations": [
+    "idle",
+    "walk",
+    "walk_carry",
+    "idle_carry",
+    "sit_down",
+    "stand_up",
+    "sit_idle",
+    "sit_type",
+    "talk",
+    "point",
+    "wave",
+    "handover",
+    "pickup",
+    "putdown",
+    "repair_stand",
+    "repair_crouch",
+    "inspect_clipboard",
+    "scan_phone",
+    "think_wait",
+    "celebrate"
+   ],
+   "sockets": [
+    "socket_hand_l",
+    "socket_hand_r"
+   ],
+   "fps": 30
+  },
+  {
+   "key": "ceiling_panel",
+   "path": "architecture/ceiling_panel.glb",
+   "category": "architecture",
+   "priority": "P2",
+   "tris": 24,
+   "size_m_xyz": [
+    0.98,
+    0.98,
+    0.06
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 3596,
+   "note": "origin at panel bottom; place at ceiling height"
+  },
+  {
+   "key": "column",
+   "path": "architecture/column.glb",
+   "category": "architecture",
+   "priority": "P2",
+   "tris": 36,
+   "size_m_xyz": [
+    0.44,
+    0.44,
+    3.0
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 4380,
+   "note": ""
+  },
+  {
+   "key": "door_single",
+   "path": "architecture/door_single.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 148,
+   "size_m_xyz": [
+    0.88,
+    0.1,
+    2.08
+   ],
+   "anchors": [
+    "anchor_hinge"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 12080,
+   "note": "rotate around anchor_hinge (z axis) to open"
+  },
+  {
+   "key": "door_vendor",
+   "path": "architecture/door_vendor.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 180,
+   "size_m_xyz": [
+    2.0,
+    0.23,
+    2.4
+   ],
+   "anchors": [
+    "anchor_door",
+    "anchor_text"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 15620,
+   "note": "roller door; sign uses mat_accent, text via anchor_text"
+  },
+  {
+   "key": "floor_tile",
+   "path": "architecture/floor_tile.glb",
+   "category": "architecture",
+   "priority": "P0",
+   "tris": 48,
+   "size_m_xyz": [
+    0.996,
+    1.0,
+    0.05
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5220,
+   "note": "top surface at z=0 (thickness below floor)"
+  },
+  {
+   "key": "floor_tile_lab",
+   "path": "architecture/floor_tile_lab.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 48,
+   "size_m_xyz": [
+    0.995,
+    0.995,
+    0.05
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5256,
+   "note": "top surface at z=0"
+  },
+  {
+   "key": "glass_partition",
+   "path": "architecture/glass_partition.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 72,
+   "size_m_xyz": [
+    2.0,
+    0.06,
+    2.4
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_glass",
+    "mat_palette"
+   ],
+   "bytes": 7968,
+   "note": ""
+  },
+  {
+   "key": "wall_corner",
+   "path": "architecture/wall_corner.glb",
+   "category": "architecture",
+   "priority": "P0",
+   "tris": 48,
+   "size_m_xyz": [
+    0.2,
+    0.2,
+    3.0
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5236,
+   "note": "post that fills wall joins (inner and outer)"
+  },
+  {
+   "key": "wall_door_frame",
+   "path": "architecture/wall_door_frame.glb",
+   "category": "architecture",
+   "priority": "P0",
+   "tris": 84,
+   "size_m_xyz": [
+    1.0,
+    0.2,
+    3.0
+   ],
+   "anchors": [
+    "anchor_door"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 7776,
+   "note": "opening 0.84 x 2.1 m; anchor_door = walk-through point"
+  },
+  {
+   "key": "wall_straight",
+   "path": "architecture/wall_straight.glb",
+   "category": "architecture",
+   "priority": "P0",
+   "tris": 48,
+   "size_m_xyz": [
+    2.0,
+    0.2,
+    3.0
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5204,
+   "note": "runs along X, thickness along Y"
+  },
+  {
+   "key": "wall_window",
+   "path": "architecture/wall_window.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 216,
+   "size_m_xyz": [
+    2.0,
+    0.24,
+    3.0
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_glass",
+    "mat_palette"
+   ],
+   "bytes": 17980,
+   "note": "glass uses mat_glass (transparent)"
+  },
+  {
+   "key": "zone_sign",
+   "path": "architecture/zone_sign.glb",
+   "category": "architecture",
+   "priority": "P1",
+   "tris": 56,
+   "size_m_xyz": [
+    1.0,
+    0.048,
+    0.32
+   ],
+   "anchors": [
+    "anchor_text"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 6112,
+   "note": "origin = wall mount point (back center); text rendered at anchor_text"
+  },
+  {
+   "key": "cabinet_file",
+   "path": "furniture/cabinet_file.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 80,
+   "size_m_xyz": [
+    0.9,
+    0.47,
+    1.8
+   ],
+   "anchors": [
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 7876,
+   "note": ""
+  },
+  {
+   "key": "chair_office",
+   "path": "furniture/chair_office.glb",
+   "category": "furniture",
+   "priority": "P0",
+   "tris": 372,
+   "size_m_xyz": [
+    0.536,
+    0.536,
+    0.94
+   ],
+   "anchors": [
+    "anchor_sit"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 26612,
+   "note": "seat height 0.49; character sits facing front"
+  },
+  {
+   "key": "chair_visitor",
+   "path": "furniture/chair_visitor.glb",
+   "category": "furniture",
+   "priority": "P1",
+   "tris": 160,
+   "size_m_xyz": [
+    0.44,
+    0.42,
+    0.85
+   ],
+   "anchors": [
+    "anchor_sit"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 13692,
+   "note": ""
+  },
+  {
+   "key": "desk_helpdesk",
+   "path": "furniture/desk_helpdesk.glb",
+   "category": "furniture",
+   "priority": "P0",
+   "tris": 268,
+   "size_m_xyz": [
+    2.02,
+    0.817,
+    1.02
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_chair",
+    "anchor_prop",
+    "anchor_prop_02",
+    "anchor_stand",
+    "anchor_text",
+    "anchor_visitor"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 22552,
+   "note": "visitor at front; staff + chair behind (anchor_chair faces front)"
+  },
+  {
+   "key": "desk_manager",
+   "path": "furniture/desk_manager.glb",
+   "category": "furniture",
+   "priority": "P1",
+   "tris": 176,
+   "size_m_xyz": [
+    1.6,
+    0.8,
+    0.752
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_chair",
+    "anchor_prop",
+    "anchor_prop_02",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 14936,
+   "note": ""
+  },
+  {
+   "key": "desk_staff",
+   "path": "furniture/desk_staff.glb",
+   "category": "furniture",
+   "priority": "P0",
+   "tris": 140,
+   "size_m_xyz": [
+    1.4,
+    0.7,
+    0.75
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_chair",
+    "anchor_prop",
+    "anchor_prop_02",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 12440,
+   "note": "user side = front (-Z glTF... see README); anchor_chair = where chair_office goes"
+  },
+  {
+   "key": "meeting_table",
+   "path": "furniture/meeting_table.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 80,
+   "size_m_xyz": [
+    2.4,
+    1.2,
+    0.76
+   ],
+   "anchors": [
+    "anchor_prop",
+    "anchor_sit_01",
+    "anchor_sit_02",
+    "anchor_sit_03",
+    "anchor_sit_04",
+    "anchor_sit_05",
+    "anchor_sit_06"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 8416,
+   "note": "anchor_sit_NN = chair positions (floor level, facing table)"
+  },
+  {
+   "key": "plant_pot",
+   "path": "furniture/plant_pot.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 276,
+   "size_m_xyz": [
+    0.532,
+    0.619,
+    0.925
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 10972,
+   "note": ""
+  },
+  {
+   "key": "printer_station",
+   "path": "furniture/printer_station.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 104,
+   "size_m_xyz": [
+    0.8,
+    0.62,
+    0.68
+   ],
+   "anchors": [
+    "anchor_prop",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 9640,
+   "note": "place printer_mfp on anchor_prop"
+  },
+  {
+   "key": "rack_server",
+   "path": "furniture/rack_server.glb",
+   "category": "furniture",
+   "priority": "P1",
+   "tris": 392,
+   "size_m_xyz": [
+    0.6,
+    1.021,
+    2.0
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 30844,
+   "note": "LEDs use mat_status_light"
+  },
+  {
+   "key": "shelf_storage",
+   "path": "furniture/shelf_storage.glb",
+   "category": "furniture",
+   "priority": "P0",
+   "tris": 96,
+   "size_m_xyz": [
+    1.2,
+    0.5,
+    2.0
+   ],
+   "anchors": [
+    "anchor_prop",
+    "anchor_prop_01",
+    "anchor_prop_02",
+    "anchor_prop_03",
+    "anchor_prop_04",
+    "anchor_prop_05",
+    "anchor_prop_06",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 9268,
+   "note": "anchor_prop_01..06 = shelf slots (bottom-left to top-right)"
+  },
+  {
+   "key": "sofa_waiting",
+   "path": "furniture/sofa_waiting.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 420,
+   "size_m_xyz": [
+    1.8,
+    0.755,
+    0.775
+   ],
+   "anchors": [
+    "anchor_sit_01",
+    "anchor_sit_02",
+    "anchor_sit_03"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 32376,
+   "note": ""
+  },
+  {
+   "key": "trash_bin",
+   "path": "furniture/trash_bin.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 140,
+   "size_m_xyz": [
+    0.324,
+    0.324,
+    0.392
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5800,
+   "note": ""
+  },
+  {
+   "key": "trolley_cart",
+   "path": "furniture/trolley_cart.glb",
+   "category": "furniture",
+   "priority": "P1",
+   "tris": 364,
+   "size_m_xyz": [
+    0.58,
+    0.885,
+    0.917
+   ],
+   "anchors": [
+    "anchor_hand",
+    "anchor_prop",
+    "anchor_prop_02"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 24032,
+   "note": "anchor_hand = where the pusher stands (handle at back)"
+  },
+  {
+   "key": "water_cooler",
+   "path": "furniture/water_cooler.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 180,
+   "size_m_xyz": [
+    0.32,
+    0.37,
+    1.08
+   ],
+   "anchors": [
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 12316,
+   "note": ""
+  },
+  {
+   "key": "whiteboard",
+   "path": "furniture/whiteboard.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 68,
+   "size_m_xyz": [
+    1.5,
+    0.08,
+    1.0
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette",
+    "mat_whiteboard"
+   ],
+   "bytes": 7856,
+   "note": "origin = wall mount (back center); mat_whiteboard surface has 0..1 UV for KPI texture"
+  },
+  {
+   "key": "workbench_repair",
+   "path": "furniture/workbench_repair.glb",
+   "category": "furniture",
+   "priority": "P0",
+   "tris": 292,
+   "size_m_xyz": [
+    1.8,
+    0.8,
+    1.28
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_prop",
+    "anchor_prop_02",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 21200,
+   "note": "item under repair goes on anchor_prop (cutting mat)"
+  },
+  {
+   "key": "workbench_tools_wall",
+   "path": "furniture/workbench_tools_wall.glb",
+   "category": "furniture",
+   "priority": "P2",
+   "tris": 356,
+   "size_m_xyz": [
+    1.54,
+    0.14,
+    1.04
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 20204,
+   "note": "origin = wall mount (back center, vertical center); hang ~1.4 m"
+  },
+  {
+   "key": "ac_ceiling",
+   "path": "assets/ac_ceiling.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 128,
+   "size_m_xyz": [
+    0.9,
+    0.9,
+    0.251
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 12268,
+   "note": "origin = ceiling (top centre), body below z=0"
+  },
+  {
+   "key": "ac_wall",
+   "path": "assets/ac_wall.glb",
+   "category": "assets",
+   "priority": "P1",
+   "tris": 144,
+   "size_m_xyz": [
+    0.95,
+    0.268,
+    0.3
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 13256,
+   "note": "origin = wall mount (back centre). Typical mount height 2.2 m; anchor_stand = technician spot on floor"
+  },
+  {
+   "key": "barcode_scanner",
+   "path": "assets/barcode_scanner.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 112,
+   "size_m_xyz": [
+    0.07,
+    0.154,
+    0.157
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 11540,
+   "note": "scan window uses mat_status_light"
+  },
+  {
+   "key": "generic_equipment",
+   "path": "assets/generic_equipment.glb",
+   "category": "assets",
+   "priority": "P0",
+   "tris": 128,
+   "size_m_xyz": [
+    0.316,
+    0.307,
+    0.28
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 12304,
+   "note": "fallback for categories without a model"
+  },
+  {
+   "key": "ip_phone",
+   "path": "assets/ip_phone.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 232,
+   "size_m_xyz": [
+    0.2,
+    0.2,
+    0.131
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 20908,
+   "note": ""
+  },
+  {
+   "key": "keyboard",
+   "path": "assets/keyboard.glb",
+   "category": "assets",
+   "priority": "P0",
+   "tris": 116,
+   "size_m_xyz": [
+    0.45,
+    0.153,
+    0.028
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 11432,
+   "note": ""
+  },
+  {
+   "key": "laptop",
+   "path": "assets/laptop.glb",
+   "category": "assets",
+   "priority": "P1",
+   "tris": 136,
+   "size_m_xyz": [
+    0.33,
+    0.233,
+    0.02
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 15608,
+   "note": "closed at rest; clip 'open' rotates laptop_lid around hinge",
+   "animations": [
+    "open"
+   ]
+  },
+  {
+   "key": "monitor",
+   "path": "assets/monitor.glb",
+   "category": "assets",
+   "priority": "P0",
+   "tris": 124,
+   "size_m_xyz": [
+    0.55,
+    0.16,
+    0.4
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 13120,
+   "note": "screen = mat_screen (swap colour/texture at runtime)"
+  },
+  {
+   "key": "mouse",
+   "path": "assets/mouse.glb",
+   "category": "assets",
+   "priority": "P0",
+   "tris": 144,
+   "size_m_xyz": [
+    0.065,
+    0.108,
+    0.049
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 8284,
+   "note": "small: keep it visible (badge/ring helps in Partial Swap)"
+  },
+  {
+   "key": "network_switch",
+   "path": "assets/network_switch.glb",
+   "category": "assets",
+   "priority": "P1",
+   "tris": 284,
+   "size_m_xyz": [
+    0.48,
+    0.254,
+    0.045
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 23196,
+   "note": ""
+  },
+  {
+   "key": "pc_tower",
+   "path": "assets/pc_tower.glb",
+   "category": "assets",
+   "priority": "P0",
+   "tris": 128,
+   "size_m_xyz": [
+    0.2,
+    0.462,
+    0.4
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 12256,
+   "note": "parent of a PC set"
+  },
+  {
+   "key": "printer_mfp",
+   "path": "assets/printer_mfp.glb",
+   "category": "assets",
+   "priority": "P1",
+   "tris": 184,
+   "size_m_xyz": [
+    0.5,
+    0.464,
+    0.333
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 17512,
+   "note": ""
+  },
+  {
+   "key": "projector",
+   "path": "assets/projector.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 224,
+   "size_m_xyz": [
+    0.3,
+    0.274,
+    0.11
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 15904,
+   "note": ""
+  },
+  {
+   "key": "tablet",
+   "path": "assets/tablet.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 68,
+   "size_m_xyz": [
+    0.25,
+    0.18,
+    0.012
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 8920,
+   "note": "lies flat, screen up"
+  },
+  {
+   "key": "ups",
+   "path": "assets/ups.glb",
+   "category": "assets",
+   "priority": "P1",
+   "tris": 80,
+   "size_m_xyz": [
+    0.2,
+    0.359,
+    0.25
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 9740,
+   "note": ""
+  },
+  {
+   "key": "wifi_ap",
+   "path": "assets/wifi_ap.glb",
+   "category": "assets",
+   "priority": "P2",
+   "tris": 120,
+   "size_m_xyz": [
+    0.2,
+    0.2,
+    0.037
+   ],
+   "anchors": [
+    "anchor_badge"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 11448,
+   "note": "lies flat (desk/ceiling); LED on top"
+  },
+  {
+   "key": "box_large",
+   "path": "props/box_large.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 68,
+   "size_m_xyz": [
+    0.5,
+    0.405,
+    0.403
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 7032,
+   "note": "two-handed carry: hands at anchor_hand_l/r"
+  },
+  {
+   "key": "box_small",
+   "path": "props/box_small.glb",
+   "category": "props",
+   "priority": "P0",
+   "tris": 68,
+   "size_m_xyz": [
+    0.25,
+    0.205,
+    0.252
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 7008,
+   "note": "two-handed carry: hands at anchor_hand_l/r"
+  },
+  {
+   "key": "cable_roll",
+   "path": "props/cable_roll.glb",
+   "category": "props",
+   "priority": "P2",
+   "tris": 132,
+   "size_m_xyz": [
+    0.235,
+    0.2,
+    0.057
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5392,
+   "note": "lies flat"
+  },
+  {
+   "key": "clipboard",
+   "path": "props/clipboard.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 108,
+   "size_m_xyz": [
+    0.23,
+    0.018,
+    0.32
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 9640,
+   "note": "PM checklist / audit"
+  },
+  {
+   "key": "ladder",
+   "path": "props/ladder.glb",
+   "category": "props",
+   "priority": "P2",
+   "tris": 120,
+   "size_m_xyz": [
+    0.52,
+    0.1,
+    1.8
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 10468,
+   "note": ""
+  },
+  {
+   "key": "package_courier",
+   "path": "props/package_courier.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 128,
+   "size_m_xyz": [
+    0.4,
+    0.307,
+    0.303
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 11304,
+   "note": "two-handed carry: hands at anchor_hand_l/r"
+  },
+  {
+   "key": "parts_box",
+   "path": "props/parts_box.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 144,
+   "size_m_xyz": [
+    0.3,
+    0.153,
+    0.2
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 12160,
+   "note": "open-front bin with spare parts"
+  },
+  {
+   "key": "screwdriver",
+   "path": "props/screwdriver.glb",
+   "category": "props",
+   "priority": "P2",
+   "tris": 48,
+   "size_m_xyz": [
+    0.2,
+    0.03,
+    0.03
+   ],
+   "anchors": [
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 4996,
+   "note": "points along +X (glTF +X)"
+  },
+  {
+   "key": "smartphone",
+   "path": "props/smartphone.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 56,
+   "size_m_xyz": [
+    0.07,
+    0.01,
+    0.15
+   ],
+   "anchors": [
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen"
+   ],
+   "bytes": 7264,
+   "note": "screen faces front"
+  },
+  {
+   "key": "ticket_paper",
+   "path": "props/ticket_paper.glb",
+   "category": "props",
+   "priority": "P0",
+   "tris": 48,
+   "size_m_xyz": [
+    0.21,
+    0.006,
+    0.3
+   ],
+   "anchors": [
+    "anchor_hand_l",
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 5444,
+   "note": "held upright; red header = repair ticket"
+  },
+  {
+   "key": "toolbox",
+   "path": "props/toolbox.glb",
+   "category": "props",
+   "priority": "P1",
+   "tris": 136,
+   "size_m_xyz": [
+    0.41,
+    0.216,
+    0.21
+   ],
+   "anchors": [
+    "anchor_hand_r"
+   ],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 12004,
+   "note": "red toolbox as in technician sheet; one-hand carry"
+  },
+  {
+   "key": "marker_alert",
+   "path": "ui/marker_alert.glb",
+   "category": "ui",
+   "priority": "P1",
+   "tris": 92,
+   "size_m_xyz": [
+    0.28,
+    0.059,
+    0.31
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 8744,
+   "note": "billboard icon; disc = mat_accent (default #D2493F), origin at bottom tip"
+  },
+  {
+   "key": "marker_check",
+   "path": "ui/marker_check.glb",
+   "category": "ui",
+   "priority": "P1",
+   "tris": 92,
+   "size_m_xyz": [
+    0.28,
+    0.059,
+    0.31
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 8740,
+   "note": "billboard icon; disc = mat_accent (default #5DBB63), origin at bottom tip"
+  },
+  {
+   "key": "marker_pause",
+   "path": "ui/marker_pause.glb",
+   "category": "ui",
+   "priority": "P1",
+   "tris": 92,
+   "size_m_xyz": [
+    0.28,
+    0.059,
+    0.31
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 8744,
+   "note": "billboard icon; disc = mat_accent (default #F2C94C), origin at bottom tip"
+  },
+  {
+   "key": "marker_pin",
+   "path": "ui/marker_pin.glb",
+   "category": "ui",
+   "priority": "P1",
+   "tris": 98,
+   "size_m_xyz": [
+    0.171,
+    0.179,
+    0.34
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 6760,
+   "note": "origin at pin tip; body = mat_accent"
+  },
+  {
+   "key": "marker_wrench",
+   "path": "ui/marker_wrench.glb",
+   "category": "ui",
+   "priority": "P1",
+   "tris": 116,
+   "size_m_xyz": [
+    0.28,
+    0.06,
+    0.31
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_palette"
+   ],
+   "bytes": 8796,
+   "note": "billboard icon; disc = mat_accent (default #5B86C5), origin at bottom tip"
+  },
+  {
+   "key": "spawn_marker",
+   "path": "ui/spawn_marker.glb",
+   "category": "ui",
+   "priority": "P2",
+   "tris": 24,
+   "size_m_xyz": [
+    0.3,
+    0.5,
+    0.01
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_palette"
+   ],
+   "bytes": 3352,
+   "note": "editor-only floor arrow; points to model front"
+  },
+  {
+   "key": "status_ring",
+   "path": "ui/status_ring.glb",
+   "category": "ui",
+   "priority": "P0",
+   "tris": 96,
+   "size_m_xyz": [
+    0.76,
+    0.76,
+    0.012
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_status_light"
+   ],
+   "bytes": 6496,
+   "note": "flat floor ring r=0.38 under a character/asset; tint mat_status_light"
+  },
+  {
+   "key": "office_demo",
+   "path": "scenes/office_demo.glb",
+   "category": "scenes",
+   "priority": "P1",
+   "tris": 18224,
+   "size_m_xyz": [
+    14.425,
+    10.445,
+    3.37
+   ],
+   "anchors": [],
+   "materials": [
+    "mat_accent",
+    "mat_glass",
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light",
+    "mat_whiteboard"
+   ],
+   "bytes": 666520,
+   "note": "fully furnished demo (instanced meshes, no anchors); use office_layout.json for live placement"
+  },
+  {
+   "key": "office_shell",
+   "path": "scenes/office_shell.glb",
+   "category": "scenes",
+   "priority": "P0",
+   "tris": 3408,
+   "size_m_xyz": [
+    14.425,
+    10.445,
+    3.37
+   ],
+   "anchors": [
+    "anchor_door_vendor",
+    "anchor_entrance",
+    "anchor_lab_gate",
+    "anchor_wp_01",
+    "anchor_wp_02",
+    "anchor_wp_03",
+    "anchor_wp_04",
+    "anchor_wp_05",
+    "anchor_wp_06",
+    "anchor_wp_07",
+    "anchor_wp_08",
+    "anchor_wp_09",
+    "anchor_wp_10",
+    "anchor_wp_11",
+    "anchor_wp_12",
+    "anchor_wp_13",
+    "anchor_wp_14",
+    "anchor_zone_helpdesk",
+    "anchor_zone_manager",
+    "anchor_zone_open_office",
+    "anchor_zone_repair_lab",
+    "anchor_zone_server",
+    "anchor_zone_storage",
+    "anchor_zone_waiting"
+   ],
+   "materials": [
+    "mat_accent",
+    "mat_glass",
+    "mat_palette"
+   ],
+   "bytes": 245360,
+   "note": "14x10 m shell: floor, walls, doors, glass lab, signs; zone + waypoint anchors"
+  },
+  {
+   "key": "zone_helpdesk",
+   "path": "scenes/zone_helpdesk.glb",
+   "category": "scenes",
+   "priority": "P2",
+   "tris": 1708,
+   "size_m_xyz": [
+    4.12,
+    2.487,
+    1.15
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_prop",
+    "anchor_sit",
+    "anchor_stand",
+    "anchor_visitor"
+   ],
+   "materials": [
+    "mat_palette",
+    "mat_screen",
+    "mat_status_light"
+   ],
+   "bytes": 116200,
+   "note": "prefab zone; origin = zone_helpdesk centre"
+  },
+  {
+   "key": "zone_repair_lab",
+   "path": "scenes/zone_repair_lab.glb",
+   "category": "scenes",
+   "priority": "P2",
+   "tris": 3052,
+   "size_m_xyz": [
+    4.027,
+    5.0,
+    2.446
+   ],
+   "anchors": [
+    "anchor_badge",
+    "anchor_hand",
+    "anchor_prop",
+    "anchor_prop_02",
+    "anchor_shelf_stand",
+    "anchor_stand"
+   ],
+   "materials": [
+    "mat_glass",
+    "mat_palette",
+    "mat_status_light"
+   ],
+   "bytes": 207540,
+   "note": "prefab zone; origin = zone_repair_lab centre"
+  }
+ ]
+}
